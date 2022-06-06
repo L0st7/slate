@@ -1,11 +1,9 @@
 ---
-title: OpenAPI definition v0
+title: YODY RESTful API
 language_tabs:
-  - "'ruby": Ruby'
-  - "'python": Python'
+  - "'http": http
 language_clients:
-  - "'ruby": ""
-  - "'python": ""
+  - "'http": ""
 toc_footers: []
 includes: []
 search: true
@@ -16,15 +14,38 @@ headingLevel: 2
 
 <!-- Generator: Widdershins v4.0.1 -->
 
-<h1 id="openapi-definition">OpenAPI definition v0</h1>
+<h1 id="openapi-definition">YODY RESTful API v1.0</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+
+<h1 id="openapi-common">Cấu hình chung</h1>
+
+## Môi trường
+
+* URL dev khách hàng: https://dev.api.yody.io
 
 Base URLs:
 
 * <a href="http://dev.api.yody.io:8000/unicorn/purchase-order-service/">http://dev.api.yody.io:8000/unicorn/purchase-order-service/</a>
 
-<h1 id="openapi-definition-procurement-controller">procurement-controller</h1>
+## Xác thực tài khoản
+> Request đến service API sẽ được xác thực theo giá trị 'authorization' trong header của request
+
+```http
+GET /authentication-request-sample HTTP/1.1
+Host: dev.api.yody.io
+authorization: your-API-token-key
+```
+
+Sau khi đối tác đăng ký và kích hoạt tài khoản trên hệ thống của YODY, tài khoản đối tác sẽ được nhận được một chuỗi API token.
+
+> Lưu ý: thay giá trị your-API-token-key bằng token của bạn.
+
+<aside class="success">
+Tất cả các request đến API service của YODY sẽ được xác thực theo giá trị `authorization` trong header của request
+</aside>
+
+<h1 id="openapi-definition-procurement-controller">Đơn nhập hàng</h1>
 
 ## updateStatus
 
