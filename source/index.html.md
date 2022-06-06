@@ -34,7 +34,7 @@ Base URLs:
 ```http
 GET /authentication-request-sample HTTP/1.1
 Host: dev.api.yody.io
-authorization: your-API-token-key
+authorization: Bearer your-API-token-key
 ```
 
 Sau khi đối tác đăng ký và kích hoạt tài khoản trên hệ thống của YODY, tài khoản đối tác sẽ được nhận được một chuỗi API token.
@@ -46,6 +46,1247 @@ Tất cả các request đến API service của YODY sẽ được xác thực 
 </aside>
 
 <h1 id="openapi-definition-procurement-controller">Đơn nhập hàng</h1>
+
+## Tạo đơn đặt hàng
+
+<a id="opIdcreate"></a>
+
+> Request
+
+```http
+POST /purchase-orders HTTP/1.1
+authorization: Bearer your-API-token-key
+Content-Type: application/json
+```
+```json
+{
+   "status":"draft",
+   "payments":[
+      
+   ],
+   "procurements":[
+      {
+         "id":null,
+         "code":null,
+         "version":1,
+         "created_by":"YD909090",
+         "created_name":"Vân anh",
+         "created_date":"2022-06-06T01:24:03Z",
+         "updated_by":"YD909090",
+         "updated_name":"Vân anh",
+         "updated_date":"2022-06-06T01:24:08Z",
+         "reference":"",
+         "store_id":null,
+         "store":"YD KHO TỔNG",
+         "expect_receipt_date":"2022-06-06T01:22:33.000+00:00",
+         "note":"",
+         "status":"draft",
+         "status_name":null,
+         "activated_date":null,
+         "activated_by":null,
+         "stock_in_date":null,
+         "stock_in_by":"",
+         "is_cancelled":false,
+         "created_date_str":null,
+         "purchase_order":null,
+         "procurement_items":[
+            {
+               "id":null,
+               "code":null,
+               "version":1,
+               "created_by":"YD909090",
+               "created_name":"Vân anh",
+               "created_date":"2022-06-06T01:24:03Z",
+               "updated_by":"YD909090",
+               "updated_name":"Vân anh",
+               "updated_date":"2022-06-06T01:24:03Z",
+               "line_item_id":null,
+               "sku":"QAM3210-TIT-XL",
+               "barcode":null,
+               "variant":null,
+               "variant_image":null,
+               "variant_id":37858,
+               "retail_price":549000,
+               "ordered_quantity":null,
+               "accepted_quantity":null,
+               "planned_quantity":null,
+               "quantity":0,
+               "real_quantity":null,
+               "note":null,
+               "price":null,
+               "vat":null,
+               "vat_rate":null,
+               "amount":null
+            }
+         ]
+      }
+   ],
+   "payment_condition_name":null,
+   "policy_price_code":"import_price",
+   "receive_status":"draft",
+   "payment_note":null,
+   "merchandiser_code":"YD909090",
+   "qc_code":"YD120996",
+   "designer_code":"YD120996",
+   "reference":"D22030237",
+   "note":"tesst note",
+   "supplier_note":"tesst supplier",
+   "tags":"",
+   "supplier_id":203,
+   "supplier":"Giang test",
+   "phone":"0987443532",
+   "billing_address":{
+      "id":5310,
+      "code":"3tr3XnYOmJWe",
+      "version":1,
+      "created_by":"YD909090",
+      "created_name":"Vân anh",
+      "created_date":"2022-06-06T01:24:03Z",
+      "updated_by":"YD909090",
+      "updated_name":"Vân anh",
+      "updated_date":"2022-06-06T01:24:03Z",
+      "name":"Giang test",
+      "email":"",
+      "phone":"0987443532",
+      "tax_code":"",
+      "country_id":233,
+      "country":"VIETNAM",
+      "city_id":null,
+      "city":null,
+      "district_id":null,
+      "district":null,
+      "ward_id":null,
+      "ward":null,
+      "zip_code":null,
+      "full_address":"Đường An Định, Phường Việt Hòa, Hải Dương",
+      "bank_number":null,
+      "bank_name":null,
+      "beneficiary":null,
+      "position":""
+   },
+   "supplier_address":{
+      "id":5311,
+      "code":"ei6NzuyLmxy8",
+      "version":1,
+      "created_by":"YD909090",
+      "created_name":"Vân anh",
+      "created_date":"2022-06-06T01:24:03Z",
+      "updated_by":"YD909090",
+      "updated_name":"Vân anh",
+      "updated_date":"2022-06-06T01:24:03Z",
+      "name":"Giang test",
+      "email":"",
+      "phone":"0987443532",
+      "tax_code":"",
+      "country_id":233,
+      "country":"VIETNAM",
+      "city_id":null,
+      "city":null,
+      "district_id":null,
+      "district":null,
+      "ward_id":null,
+      "ward":null,
+      "zip_code":null,
+      "full_address":"Đường An Định, Phường Việt Hòa, Hải Dương",
+      "bank_number":null,
+      "bank_name":null,
+      "beneficiary":null,
+      "position":null
+   },
+   "is_grid_mode":true,
+   "line_items":[
+      {
+         "id":18270,
+         "variant_id":37858,
+         "variant":"Quần âu nam YODY 06 - Tím than - XL",
+         "product_id":12968,
+         "sku":"QAM3210-TIT-XL",
+         "product":"Quần âu nam YODY 06",
+         "barcode":"2000142763601",
+         "variant_image":"",
+         "retail_price":549000,
+         "quantity":3,
+         "price":170000,
+         "purchase_order_id":null,
+         "tax":5100,
+         "tax_rate":1,
+         "amount":510000,
+         "line_amount_after_line_discount":510000,
+         "updated_by":"",
+         "updated_name":""
+      }
+   ],
+   "untaxed_amount":5440000,
+   "tax_lines":[
+      {
+         "rate":1,
+         "amount":54400
+      }
+   ],
+   "trade_discount_amount":0,
+   "payment_discount_amount":0,
+   "total":5494400
+}
+```
+
+> Responses
+
+> 200 Response
+
+```json
+{
+   "code":20000000,
+   "message":"Thành công",
+   "data":{
+      "id":2808,
+      "code":"PO060622011",
+      "version":1,
+      "created_by":"YD99999",
+      "created_name":"Quản trị viên",
+      "created_date":"2022-06-06T07:37:01Z",
+      "updated_by":"YD99999",
+      "updated_name":"Quản trị viên",
+      "updated_date":"2022-06-06T07:37:01Z",
+      "company_id":null,
+      "merchandiser_code":"YD909090",
+      "merchandiser":"Vân anh",
+      "designer_code":"YD120996",
+      "designer":"Test warranty",
+      "qc_code":"YD120996",
+      "qc":"Test warranty",
+      "reference":"D22030237",
+      "type":null,
+      "supplier_id":203,
+      "supplier_code":"NCC000000203",
+      "supplier":"Giang test",
+      "billing_address":{
+         "id":5328,
+         "code":"N7Nm8uGkMFA3",
+         "version":1,
+         "created_by":"YD99999",
+         "created_name":"Quản trị viên",
+         "created_date":"2022-06-06T07:37:01Z",
+         "updated_by":"YD99999",
+         "updated_name":"Quản trị viên",
+         "updated_date":"2022-06-06T07:37:01Z",
+         "name":"Giang test",
+         "email":"",
+         "phone":"0987443532",
+         "tax_code":"",
+         "country_id":233,
+         "country":"VIETNAM",
+         "city_id":null,
+         "city":null,
+         "district_id":null,
+         "district":null,
+         "ward_id":null,
+         "ward":null,
+         "zip_code":null,
+         "full_address":"Đường An Định, Phường Việt Hòa, Hải Dương",
+         "bank_number":null,
+         "bank_name":null,
+         "beneficiary":null,
+         "position":""
+      },
+      "supplier_address":{
+         "id":5329,
+         "code":"h3p4vv9Rs13w",
+         "version":1,
+         "created_by":"YD99999",
+         "created_name":"Quản trị viên",
+         "created_date":"2022-06-06T07:37:01Z",
+         "updated_by":"YD99999",
+         "updated_name":"Quản trị viên",
+         "updated_date":"2022-06-06T07:37:01Z",
+         "name":"Giang test",
+         "email":"",
+         "phone":"0987443532",
+         "tax_code":"",
+         "country_id":233,
+         "country":"VIETNAM",
+         "city_id":null,
+         "city":null,
+         "district_id":null,
+         "district":null,
+         "ward_id":null,
+         "ward":null,
+         "zip_code":null,
+         "full_address":"Đường An Định, Phường Việt Hòa, Hải Dương",
+         "bank_number":null,
+         "bank_name":null,
+         "beneficiary":null,
+         "position":null
+      },
+      "line_items":[
+         {
+            "id":18346,
+            "code":"nHSKe4C2NJgf",
+            "version":1,
+            "created_by":"YD99999",
+            "created_name":"Quản trị viên",
+            "created_date":"2022-06-06T07:37:01Z",
+            "updated_by":"YD99999",
+            "updated_name":"Quản trị viên",
+            "updated_date":"2022-06-06T07:37:01Z",
+            "sku":"QAM3210-TIT-XL",
+            "barcode":"2000142763601",
+            "variant_id":37858,
+            "variant_detail":null,
+            "product_id":12968,
+            "product":"Quần âu nam YODY 06",
+            "variant":"Quần âu nam YODY 06 - Tím than - XL",
+            "retail_price":549000,
+            "product_type":null,
+            "quantity":3,
+            "receipt_quantity":null,
+            "planned_quantity":null,
+            "price":170000,
+            "amount":510000,
+            "note":null,
+            "type":null,
+            "variant_image":"",
+            "unit":null,
+            "tax":5100,
+            "tax_rate":1.0,
+            "line_amount_after_line_discount":510000,
+            "discount_rate":null,
+            "discount_value":null,
+            "discount_amount":null,
+            "position":null,
+            "purchase_order_id":null
+         }
+      ],
+      "return_orders":null,
+      "phone":"0987443532",
+      "supplier_note":"tesst supplier",
+      "expect_import_date":null,
+      "expect_return_date":null,
+      "expect_store_id":null,
+      "expect_store":null,
+      "payment_condition_id":null,
+      "payment_condition_name":null,
+      "payment_note":null,
+      "note":"tesst note",
+      "tags":"",
+      "policy_price_code":"import_price",
+      "tax_included":true,
+      "payments":null,
+      "payment_refunds":null,
+      "procurements":[
+         {
+            "id":4632,
+            "code":"PR000004632",
+            "version":1,
+            "created_by":"YD99999",
+            "created_name":"Quản trị viên",
+            "created_date":"2022-06-06T07:37:01Z",
+            "updated_by":"YD99999",
+            "updated_name":"Quản trị viên",
+            "updated_date":"2022-06-06T07:37:01Z",
+            "reference":"",
+            "store_id":null,
+            "store":"YD KHO TỔNG",
+            "expect_receipt_date":"2022-06-06T01:22:33.000+00:00",
+            "note":"",
+            "status":"draft",
+            "status_name":null,
+            "activated_date":null,
+            "activated_by":null,
+            "stock_in_date":null,
+            "stock_in_by":"",
+            "is_cancelled":false,
+            "created_date_str":null,
+            "purchase_order":{
+               "id":2808,
+               "company_id":null,
+               "merchandiser_code":"YD909090",
+               "merchandiser":"Vân anh",
+               "designer_code":"YD120996",
+               "designer":"Test warranty",
+               "qc_code":"YD120996",
+               "qc":"Test warranty",
+               "reference":"D22030237",
+               "type":null,
+               "code":"PO060622011",
+               "supplier_id":203,
+               "supplier_code":"NCC000000203",
+               "supplier":"Giang test",
+               "phone":"0987443532"
+            },
+            "procurement_items":[
+               {
+                  "id":30082,
+                  "code":"JwA92ZmNT9xq",
+                  "version":1,
+                  "created_by":"YD99999",
+                  "created_name":"Quản trị viên",
+                  "created_date":"2022-06-06T07:37:01Z",
+                  "updated_by":"YD99999",
+                  "updated_name":"Quản trị viên",
+                  "updated_date":"2022-06-06T07:37:01Z",
+                  "line_item_id":null,
+                  "sku":"QAM3210-TIT-XL",
+                  "barcode":null,
+                  "variant":null,
+                  "variant_image":null,
+                  "variant_id":37858,
+                  "retail_price":549000,
+                  "ordered_quantity":null,
+                  "accepted_quantity":null,
+                  "planned_quantity":null,
+                  "quantity":0,
+                  "real_quantity":null,
+                  "note":null,
+                  "price":null,
+                  "vat":null,
+                  "vat_rate":null,
+                  "amount":null
+               }
+            ]
+         }
+      ],
+      "cost_lines":null,
+      "total_cost_line":null,
+      "tax_lines":[
+         {
+            "rate":1.0,
+            "amount":54400
+         }
+      ],
+      "payment_discount_rate":null,
+      "payment_discount_value":null,
+      "payment_discount_amount":0,
+      "trade_discount_rate":null,
+      "trade_discount_value":null,
+      "trade_discount_amount":0,
+      "untaxed_amount":5440000,
+      "untaxed_amount_refunds":null,
+      "tax":null,
+      "total":5494400,
+      "total_payment":5494400,
+      "total_paid":null,
+      "total_refunds":null,
+      "receipt_quantity":null,
+      "planned_quantity":32,
+      "status":"draft",
+      "status_name":"Nháp",
+      "financial_status":"draft",
+      "receive_status":"draft",
+      "cancel_reason":null,
+      "order_date":"2022-06-06T07:37:01Z",
+      "order_date_string":"06-06-2022",
+      "cancelled_date":null,
+      "activated_date":null,
+      "completed_date":null,
+      "completed_stock_date":null,
+      "is_grid_mode":true,
+      "is_grid_mode_supplement":false,
+      "receive_finished_date":null,
+      "waiting_approval_date":null
+   },
+   "response_time":"2022-06-06T07:37:01.908+00:00",
+   "errors":null,
+   "request_id":null
+}
+```
+
+Tạo một đơn đặt hàng
+
+`POST /purchase-orders`
+
+<h3 id="create-parameters">Các tham số</h3>
+
+|Tham số|Bắt buộc|Type|Mô tả|
+|---|---|---|---|
+|status|no|string|Trạng thái đơn đặt hàng|
+|payments|no|array|Danh sách thanh toán đơn hàng|
+|procurements|no|array|Danh sách phiếu nhập kho|
+|policy_price_code|no|string|Chính sách giá|
+|receive_status|no|string|Trạng thái nhập kho|
+|merchandiser_code|true|string|Mã người bán hàng|
+|qc_code|no|string|Mã QC|
+|designer_code|no|string|Mã designer|
+|reference|no|string|Mã tham chiếu|
+|note|no|string|Ghi chú đơn nhập|
+|supplier_note|no|string|Ghi chú nhà cung cấp|
+|tags|no|string|tags|
+|supplier_id|true|long|ID nhà cung cấp|
+|supplier|no|string|Tên nhà cung cấp|
+|phone|no|string|Số điện thoại nhà cung cấp|
+|billing_address|no|object|Thông tin địa chỉ thanh toán|
+|supplier_address|yes|object|Thông tin địa chỉ nhà cung cấp|
+|is_grid_mode|no|boolean|Flag đánh dấu hiển thị danh sách sản phẩm|
+|line_items|yes|array|Danh sách sản phẩm trong phiếu|
+|untaxed_amount|no|BigDecimal|Tổng tiền chưa chịu thuế|
+|tax_lines|yes|array|Danh sách thuế|
+|trade_discount_amount|no|BigDecimal|Tiền chiếu khấu thương mại|
+|payment_discount_amount|no|BigDecimal|Tiền chiếu khấu|
+|total|no|BigDecimal|Tổng tiền|
+|---|---|---|---|
+|Tham số procurements||||
+|version|yes|int|Phiên bản dữ liệu|
+|created_by|yes|string|Mã người tạo|
+|created_name|yes|string|Tên người tạo|
+|created_date|yes|string|Ngày tạo|
+|updated_by|yes|string|Mã người cập nhật|
+|updated_name|yes|string|Tên người cập nhật|
+|updated_date|yes|string|Ngày cập nhật|
+|store|no|string|Tên kho nhận hàng|
+|expect_receipt_date|yes|string|Ngày nhập hàng dự kiến|
+|note|no|string|Ghi chú phiếu nhập kho|
+|status|yes|string|Trạng thái phiếu nhập kho|
+|activated_date|no|string|Ngày duyệt phiếu nhập kho|
+|activated_by|no|string|Người duyệt phiếu nhập kho|
+|stock_in_date|no|string|Ngày nhập kho|
+|stock_in_by|no|string|Người nhập kho|
+|is_cancelled|no|boolean|Phiếu nhập đã hủy hay chưa|
+|procurement_items|yes|array|Danh sách sản phẩm trong phiếu nhập kho|
+|procurement_items.version|yes|int|phiên bản dữ liệu|
+|procurement_items.created_by|yes|string|Mã người tạo|
+|procurement_items.created_name|yes|string|Tên người tạo|
+|procurement_items.created_date|yes|string|Ngày tạo|
+|procurement_items.updated_by|yes|string|Mã người cập nhật|
+|procurement_items.updated_name|yes|string|Tên người cập nhật|
+|procurement_items.updated_date|yes|string|Ngày cập nhật|
+|procurement_items.sku|yes|string|Mã sản phẩm|
+|procurement_items.barcode|yes|string|Mã barcode của sản phẩm|
+|procurement_items.variant|no|string|Tên sản phẩm|
+|procurement_items.variant_image|no|string|Hình ảnh sản phẩm|
+|procurement_items.variant_id|yes|long|Id sản phẩm|
+|procurement_items.retail_price|no|BigDecimal|Giá bán sản phẩm|
+|procurement_items.ordered_quantity|no|BigDecimal|Số lượng sản phẩm đặt hàng|
+|procurement_items.accepted_quantity|no|BigDecimal|Số lượng sản phẩm duyệt nhập kho|
+|procurement_items.planned_quantity|no|BigDecimal|Số lượng sản phẩm lên kế hoạch nhập kho|
+|procurement_items.quantity|no|BigDecimal|Số lượng sản phẩm|
+|procurement_items.real_quantity|no|BigDecimal|Số lượng sản phẩm nhập thực tế|
+|procurement_items.note|no|string|Ghi chú|
+|---|---|---|---|
+|Tham số line_items||||
+|variant_id|yes|long|Id sản phẩm|
+|variant|no|string|Tên sản phẩm|
+|product_id|yes|long|Id sản phẩm cha|
+|sku|yes|string|Mã sản phẩm|
+|product|yes|string|Tên sản phẩm cha|
+|barcode|yes|string|Mã barcode của sản phẩm|
+|variant_image|no|string|Hình ảnh sản phẩm|
+|retail_price|no|BigDecimal|Giá bán sản phẩm|
+|quantity|no|BigDecimal|Số lượng sản phẩm|
+|price|no|BigDecimal|Đơn giá sản phẩm|
+|tax|no|BigDecimal|Tiền thuế|
+|tax_rate|no|int|Thuế suất|
+|amount|no|BigDecimal|Thành tiền sp|
+|line_amount_after_line_discount|no|BigDecimal|Thành tiền sp sau khi giảm giá|
+
+## getPurchaseOrder
+
+<a id="opIdgetPurchaseOrder"></a>
+
+> Code samples
+
+`GET /purchase-orders/{id}`
+
+<h3 id="getpurchaseorder-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer(int64)|true|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="getpurchaseorder-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## update_1
+
+<a id="opIdupdate_1"></a>
+
+> Code samples
+
+`PUT /purchase-orders/{id}`
+
+> Body parameter
+
+```json
+{
+  "created_by": "string",
+  "created_name": "string",
+  "updated_by": "string",
+  "updated_name": "string",
+  "request_id": "string",
+  "operator_kc_id": "string",
+  "id": 0,
+  "code": "string",
+  "company_id": 0,
+  "merchandiser_code": "string",
+  "merchandiser": "string",
+  "designer_code": "string",
+  "designer": "string",
+  "qc_code": "string",
+  "qc": "string",
+  "reference": "string",
+  "type": "string",
+  "supplier_id": 0,
+  "supplier_code": "string",
+  "supplier": "string",
+  "phone": "string",
+  "supplier_note": "string",
+  "billing_address": {
+    "created_by": "string",
+    "created_name": "string",
+    "updated_by": "string",
+    "updated_name": "string",
+    "request_id": "string",
+    "operator_kc_id": "string",
+    "id": 0,
+    "name": "string",
+    "email": "string",
+    "phone": "string",
+    "tax_code": "string",
+    "country_id": 0,
+    "country": "string",
+    "city_id": 0,
+    "city": "string",
+    "district_id": 0,
+    "district": "string",
+    "ward_id": 0,
+    "ward": "string",
+    "zip_code": "string",
+    "full_address": "string",
+    "bank_number": "string",
+    "bank_name": "string",
+    "beneficiary": "string",
+    "position": "string"
+  },
+  "supplier_address": {
+    "created_by": "string",
+    "created_name": "string",
+    "updated_by": "string",
+    "updated_name": "string",
+    "request_id": "string",
+    "operator_kc_id": "string",
+    "id": 0,
+    "name": "string",
+    "email": "string",
+    "phone": "string",
+    "tax_code": "string",
+    "country_id": 0,
+    "country": "string",
+    "city_id": 0,
+    "city": "string",
+    "district_id": 0,
+    "district": "string",
+    "ward_id": 0,
+    "ward": "string",
+    "zip_code": "string",
+    "full_address": "string",
+    "bank_number": "string",
+    "bank_name": "string",
+    "beneficiary": "string",
+    "position": "string"
+  },
+  "line_items": [
+    {
+      "created_by": "string",
+      "created_name": "string",
+      "updated_by": "string",
+      "updated_name": "string",
+      "request_id": "string",
+      "operator_kc_id": "string",
+      "id": 0,
+      "code": "string",
+      "sku": "string",
+      "variant_id": 0,
+      "barcode": "string",
+      "product_id": 0,
+      "product": "string",
+      "variant": "string",
+      "retail_price": 0,
+      "product_type": "string",
+      "quantity": 0,
+      "receipt_quantity": 0,
+      "planned_quantity": 0,
+      "price": 0,
+      "amount": 0,
+      "note": "string",
+      "type": "string",
+      "variant_image": "string",
+      "unit": "string",
+      "tax": 0,
+      "tax_rate": 0,
+      "line_amount_after_line_discount": 0,
+      "discount_rate": 0,
+      "discount_value": 0,
+      "discount_amount": 0,
+      "position": 0,
+      "purchase_order_id": 0
+    }
+  ],
+  "expect_import_date": "2019-08-24T14:15:22Z",
+  "expect_store_id": 0,
+  "expect_store": "string",
+  "payment_condition_id": 0,
+  "payment_condition_name": "string",
+  "payment_note": "string",
+  "note": "string",
+  "tags": "string",
+  "policy_price_code": "string",
+  "tax_included": true,
+  "payments": [
+    {
+      "created_by": "string",
+      "created_name": "string",
+      "updated_by": "string",
+      "updated_name": "string",
+      "request_id": "string",
+      "operator_kc_id": "string",
+      "id": 0,
+      "amount": 0,
+      "reference": "string",
+      "payment_method_code": "string",
+      "status": "string",
+      "status_name": "string",
+      "transaction_date": "2019-08-24T14:15:22Z",
+      "is_refund": true,
+      "purchase_order_id": 0,
+      "note": "string"
+    }
+  ],
+  "procurements": [
+    {
+      "created_by": "string",
+      "created_name": "string",
+      "updated_by": "string",
+      "updated_name": "string",
+      "request_id": "string",
+      "operator_kc_id": "string",
+      "id": 0,
+      "code": "string",
+      "reference": "string",
+      "store_id": 0,
+      "store": "string",
+      "expect_receipt_date": "2019-08-24T14:15:22Z",
+      "note": "string",
+      "status": "string",
+      "status_name": "string",
+      "activated_date": "2019-08-24T14:15:22Z",
+      "activated_by": "string",
+      "stock_in_date": "2019-08-24T14:15:22Z",
+      "stock_in_by": "string",
+      "procurement_items": [
+        {
+          "created_by": "string",
+          "created_name": "string",
+          "updated_by": "string",
+          "updated_name": "string",
+          "request_id": "string",
+          "operator_kc_id": "string",
+          "id": 0,
+          "line_item_id": 0,
+          "sku": "string",
+          "barcode": "string",
+          "variant": "string",
+          "variant_image": "string",
+          "variant_id": 0,
+          "retail_price": 0,
+          "ordered_quantity": 0,
+          "accepted_quantity": 0,
+          "planned_quantity": 0,
+          "quantity": 0,
+          "real_quantity": 0,
+          "note": "string",
+          "procurement_id": 0
+        }
+      ],
+      "refer_ids": [
+        0
+      ]
+    }
+  ],
+  "payment_discount_rate": 0,
+  "payment_discount_value": 0,
+  "payment_discount_amount": 0,
+  "trade_discount_rate": 0,
+  "trade_discount_value": 0,
+  "trade_discount_amount": 0,
+  "cost_lines": [
+    {
+      "created_by": "string",
+      "created_name": "string",
+      "updated_by": "string",
+      "updated_name": "string",
+      "request_id": "string",
+      "operator_kc_id": "string",
+      "id": 0,
+      "title": "string",
+      "amount": 0
+    }
+  ],
+  "untaxed_amount": 0,
+  "tax": 0,
+  "total": 0,
+  "total_paid": 0,
+  "total_refunds": 0,
+  "receipt_quantity": 0,
+  "planned_quantity": 0,
+  "status": "string",
+  "financial_status": "string",
+  "receive_status": "string",
+  "cancel_reason": "string",
+  "is_grid_mode": true,
+  "is_grid_mode_supplement": true,
+  "version": 0
+}
+```
+
+<h3 id="update_1-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|x-user-name|header|string|false|none|
+|x-user-code|header|string|false|none|
+|id|path|integer(int64)|true|none|
+|body|body|[UpdatePurchaseOrderRequest](#schemaupdatepurchaseorderrequest)|true|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="update_1-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## updateNotes
+
+<a id="opIdupdateNotes"></a>
+
+> Code samples
+
+`PUT /purchase-orders/{id}/notes`
+
+> Body parameter
+
+```json
+{
+  "created_by": "string",
+  "created_name": "string",
+  "updated_by": "string",
+  "updated_name": "string",
+  "request_id": "string",
+  "operator_kc_id": "string",
+  "note": "string",
+  "supplier_note": "string"
+}
+```
+
+<h3 id="updatenotes-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|x-user-name|header|string|false|none|
+|x-user-code|header|string|false|none|
+|id|path|integer(int64)|true|none|
+|body|body|[UpdateNotesRequest](#schemaupdatenotesrequest)|true|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="updatenotes-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## cancel
+
+<a id="opIdcancel"></a>
+
+> Code samples
+
+`PUT /purchase-orders/{id}/cancel`
+
+<h3 id="cancel-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|x-user-name|header|string|false|none|
+|x-user-code|header|string|false|none|
+|id|path|integer(int64)|true|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="cancel-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## search
+
+<a id="opIdsearch"></a>
+
+> Code samples
+
+`GET /purchase-orders`
+
+<h3 id="search-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|page|query|integer(int32)|false|none|
+|limit|query|integer(int32)|false|none|
+|sort_type|query|string|false|none|
+|sort_column|query|string|false|none|
+|info|query|string|false|none|
+|from_order_date|query|string(date-time)|false|none|
+|to_order_date|query|string(date-time)|false|none|
+|from_cancelled_date|query|string(date-time)|false|none|
+|to_cancelled_date|query|string(date-time)|false|none|
+|from_activated_date|query|string(date-time)|false|none|
+|to_activated_date|query|string(date-time)|false|none|
+|from_completed_date|query|string(date-time)|false|none|
+|to_completed_date|query|string(date-time)|false|none|
+|from_expect_import_date|query|string(date-time)|false|none|
+|to_expect_import_date|query|string(date-time)|false|none|
+|expect_store|query|string|false|none|
+|status|query|string|false|none|
+|financial_status|query|string|false|none|
+|receive_status|query|string|false|none|
+|merchandiser|query|string|false|none|
+|qc|query|string|false|none|
+|cost_included|query|boolean|false|none|
+|tax_included|query|boolean|false|none|
+|is_have_returned|query|boolean|false|none|
+|note|query|string|false|none|
+|supplier_note|query|string|false|none|
+|tags|query|string|false|none|
+|reference|query|string|false|none|
+|ids|query|string|false|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="search-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPageableDtoSimplePurchaseOrderDto](#schemaresultpageabledtosimplepurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## delete
+
+<a id="opIddelete"></a>
+
+> Code samples
+
+`DELETE /purchase-orders`
+
+<h3 id="delete-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|x-user-name|header|string|false|none|
+|x-user-code|header|string|false|none|
+|ids|query|array[integer]|true|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="delete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultString](#schemaresultstring)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## updateVariantPurchaseOrderLines
+
+<a id="opIdupdateVariantPurchaseOrderLines"></a>
+
+> Code samples
+
+`POST /purchase-orders/migration-variant-po-lines`
+
+> Example responses
+
+> 200 Response
+
+<h3 id="updatevariantpurchaseorderlines-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultString](#schemaresultstring)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## migrateUpdateStatusProcurementForCutOff
+
+<a id="opIdmigrateUpdateStatusProcurementForCutOff"></a>
+
+> Code samples
+
+`POST /purchase-orders/migration-status-procurement-cutoff`
+
+> Body parameter
+
+```json
+{
+  "file_upload": "string"
+}
+```
+
+<h3 id="migrateupdatestatusprocurementforcutoff-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object|true|none|
+|» file_upload|body|string(binary)|false|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="migrateupdatestatusprocurementforcutoff-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListString](#schemaresultliststring)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## migrateDataPoFromNhanh
+
+<a id="opIdmigrateDataPoFromNhanh"></a>
+
+> Code samples
+
+`POST /purchase-orders/migration-po`
+
+> Body parameter
+
+```json
+{
+  "file_upload": "string"
+}
+```
+
+<h3 id="migratedatapofromnhanh-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|object|true|none|
+|» file_upload|body|string(binary)|false|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="migratedatapofromnhanh-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListString](#schemaresultliststring)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## printProcurement
+
+<a id="opIdprintProcurement"></a>
+
+> Code samples
+
+`GET /purchase-orders/print-procurement`
+
+<h3 id="printprocurement-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|query|integer(int64)|true|none|
+|poId|query|integer(int64)|true|none|
+|storeId|query|integer(int64)|false|none|
+|print_type|query|string|false|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="printprocurement-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ProcurementPrintForm](#schemaprocurementprintform)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## printFrom
+
+<a id="opIdprintFrom"></a>
+
+> Code samples
+
+`GET /purchase-orders/print-forms`
+
+<h3 id="printfrom-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|ids|query|array[integer]|true|none|
+|storeId|query|integer(int64)|false|none|
+|print_type|query|string|false|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="printfrom-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+
+<h3 id="printfrom-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[PurchaseOrderPrintForm](#schemapurchaseorderprintform)]|false|none|none|
+|» purchaseOrderId|integer(int64)|false|none|none|
+|» htmlContent|string|false|none|none|
+|» size|string|false|none|none|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## getPurchaseOrder_1
+
+<a id="opIdgetPurchaseOrder_1"></a>
+
+> Code samples
+
+`GET /purchase-orders/list`
+
+<h3 id="getpurchaseorder_1-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|ids|query|array[integer]|true|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="getpurchaseorder_1-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListPurchaseOrderDto](#schemaresultlistpurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## findAllPoBySupplierIdToCreateProcurementManual
+
+<a id="opIdfindAllPoBySupplierIdToCreateProcurementManual"></a>
+
+> Code samples
+
+`GET /purchase-orders/list-by-supplier/{id}`
+
+<h3 id="findallpobysupplieridtocreateprocurementmanual-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer(int64)|true|none|
+|condition|query|string|false|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="findallpobysupplieridtocreateprocurementmanual-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListPurchaseOrderDto](#schemaresultlistpurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## findPurchaseOrderAlmostRight
+
+<a id="opIdfindPurchaseOrderAlmostRight"></a>
+
+> Code samples
+
+`GET /purchase-orders/almost-right`
+
+<h3 id="findpurchaseorderalmostright-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|sku|query|string|true|none|
+|supplier_id|query|integer(int64)|true|none|
+
+> Example responses
+
+> 200 Response
+
+<h3 id="findpurchaseorderalmostright-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListPurchaseOrderDto](#schemaresultlistpurchaseorderdto)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+
 
 ## updateStatus
 
@@ -1098,977 +2339,7 @@ This operation does not require authentication
 
 <h1 id="openapi-definition-purchase-order-controller">purchase-order-controller</h1>
 
-## getPurchaseOrder
 
-<a id="opIdgetPurchaseOrder"></a>
-
-> Code samples
-
-`GET /purchase-orders/{id}`
-
-<h3 id="getpurchaseorder-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int64)|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="getpurchaseorder-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## update_1
-
-<a id="opIdupdate_1"></a>
-
-> Code samples
-
-`PUT /purchase-orders/{id}`
-
-> Body parameter
-
-```json
-{
-  "created_by": "string",
-  "created_name": "string",
-  "updated_by": "string",
-  "updated_name": "string",
-  "request_id": "string",
-  "operator_kc_id": "string",
-  "id": 0,
-  "code": "string",
-  "company_id": 0,
-  "merchandiser_code": "string",
-  "merchandiser": "string",
-  "designer_code": "string",
-  "designer": "string",
-  "qc_code": "string",
-  "qc": "string",
-  "reference": "string",
-  "type": "string",
-  "supplier_id": 0,
-  "supplier_code": "string",
-  "supplier": "string",
-  "phone": "string",
-  "supplier_note": "string",
-  "billing_address": {
-    "created_by": "string",
-    "created_name": "string",
-    "updated_by": "string",
-    "updated_name": "string",
-    "request_id": "string",
-    "operator_kc_id": "string",
-    "id": 0,
-    "name": "string",
-    "email": "string",
-    "phone": "string",
-    "tax_code": "string",
-    "country_id": 0,
-    "country": "string",
-    "city_id": 0,
-    "city": "string",
-    "district_id": 0,
-    "district": "string",
-    "ward_id": 0,
-    "ward": "string",
-    "zip_code": "string",
-    "full_address": "string",
-    "bank_number": "string",
-    "bank_name": "string",
-    "beneficiary": "string",
-    "position": "string"
-  },
-  "supplier_address": {
-    "created_by": "string",
-    "created_name": "string",
-    "updated_by": "string",
-    "updated_name": "string",
-    "request_id": "string",
-    "operator_kc_id": "string",
-    "id": 0,
-    "name": "string",
-    "email": "string",
-    "phone": "string",
-    "tax_code": "string",
-    "country_id": 0,
-    "country": "string",
-    "city_id": 0,
-    "city": "string",
-    "district_id": 0,
-    "district": "string",
-    "ward_id": 0,
-    "ward": "string",
-    "zip_code": "string",
-    "full_address": "string",
-    "bank_number": "string",
-    "bank_name": "string",
-    "beneficiary": "string",
-    "position": "string"
-  },
-  "line_items": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "code": "string",
-      "sku": "string",
-      "variant_id": 0,
-      "barcode": "string",
-      "product_id": 0,
-      "product": "string",
-      "variant": "string",
-      "retail_price": 0,
-      "product_type": "string",
-      "quantity": 0,
-      "receipt_quantity": 0,
-      "planned_quantity": 0,
-      "price": 0,
-      "amount": 0,
-      "note": "string",
-      "type": "string",
-      "variant_image": "string",
-      "unit": "string",
-      "tax": 0,
-      "tax_rate": 0,
-      "line_amount_after_line_discount": 0,
-      "discount_rate": 0,
-      "discount_value": 0,
-      "discount_amount": 0,
-      "position": 0,
-      "purchase_order_id": 0
-    }
-  ],
-  "expect_import_date": "2019-08-24T14:15:22Z",
-  "expect_store_id": 0,
-  "expect_store": "string",
-  "payment_condition_id": 0,
-  "payment_condition_name": "string",
-  "payment_note": "string",
-  "note": "string",
-  "tags": "string",
-  "policy_price_code": "string",
-  "tax_included": true,
-  "payments": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "amount": 0,
-      "reference": "string",
-      "payment_method_code": "string",
-      "status": "string",
-      "status_name": "string",
-      "transaction_date": "2019-08-24T14:15:22Z",
-      "is_refund": true,
-      "purchase_order_id": 0,
-      "note": "string"
-    }
-  ],
-  "procurements": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "code": "string",
-      "reference": "string",
-      "store_id": 0,
-      "store": "string",
-      "expect_receipt_date": "2019-08-24T14:15:22Z",
-      "note": "string",
-      "status": "string",
-      "status_name": "string",
-      "activated_date": "2019-08-24T14:15:22Z",
-      "activated_by": "string",
-      "stock_in_date": "2019-08-24T14:15:22Z",
-      "stock_in_by": "string",
-      "procurement_items": [
-        {
-          "created_by": "string",
-          "created_name": "string",
-          "updated_by": "string",
-          "updated_name": "string",
-          "request_id": "string",
-          "operator_kc_id": "string",
-          "id": 0,
-          "line_item_id": 0,
-          "sku": "string",
-          "barcode": "string",
-          "variant": "string",
-          "variant_image": "string",
-          "variant_id": 0,
-          "retail_price": 0,
-          "ordered_quantity": 0,
-          "accepted_quantity": 0,
-          "planned_quantity": 0,
-          "quantity": 0,
-          "real_quantity": 0,
-          "note": "string",
-          "procurement_id": 0
-        }
-      ],
-      "refer_ids": [
-        0
-      ]
-    }
-  ],
-  "payment_discount_rate": 0,
-  "payment_discount_value": 0,
-  "payment_discount_amount": 0,
-  "trade_discount_rate": 0,
-  "trade_discount_value": 0,
-  "trade_discount_amount": 0,
-  "cost_lines": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "title": "string",
-      "amount": 0
-    }
-  ],
-  "untaxed_amount": 0,
-  "tax": 0,
-  "total": 0,
-  "total_paid": 0,
-  "total_refunds": 0,
-  "receipt_quantity": 0,
-  "planned_quantity": 0,
-  "status": "string",
-  "financial_status": "string",
-  "receive_status": "string",
-  "cancel_reason": "string",
-  "is_grid_mode": true,
-  "is_grid_mode_supplement": true,
-  "version": 0
-}
-```
-
-<h3 id="update_1-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|x-user-name|header|string|false|none|
-|x-user-code|header|string|false|none|
-|id|path|integer(int64)|true|none|
-|body|body|[UpdatePurchaseOrderRequest](#schemaupdatepurchaseorderrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="update_1-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## updateNotes
-
-<a id="opIdupdateNotes"></a>
-
-> Code samples
-
-`PUT /purchase-orders/{id}/notes`
-
-> Body parameter
-
-```json
-{
-  "created_by": "string",
-  "created_name": "string",
-  "updated_by": "string",
-  "updated_name": "string",
-  "request_id": "string",
-  "operator_kc_id": "string",
-  "note": "string",
-  "supplier_note": "string"
-}
-```
-
-<h3 id="updatenotes-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|x-user-name|header|string|false|none|
-|x-user-code|header|string|false|none|
-|id|path|integer(int64)|true|none|
-|body|body|[UpdateNotesRequest](#schemaupdatenotesrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="updatenotes-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## cancel
-
-<a id="opIdcancel"></a>
-
-> Code samples
-
-`PUT /purchase-orders/{id}/cancel`
-
-<h3 id="cancel-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|x-user-name|header|string|false|none|
-|x-user-code|header|string|false|none|
-|id|path|integer(int64)|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="cancel-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## search
-
-<a id="opIdsearch"></a>
-
-> Code samples
-
-`GET /purchase-orders`
-
-<h3 id="search-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|page|query|integer(int32)|false|none|
-|limit|query|integer(int32)|false|none|
-|sort_type|query|string|false|none|
-|sort_column|query|string|false|none|
-|info|query|string|false|none|
-|from_order_date|query|string(date-time)|false|none|
-|to_order_date|query|string(date-time)|false|none|
-|from_cancelled_date|query|string(date-time)|false|none|
-|to_cancelled_date|query|string(date-time)|false|none|
-|from_activated_date|query|string(date-time)|false|none|
-|to_activated_date|query|string(date-time)|false|none|
-|from_completed_date|query|string(date-time)|false|none|
-|to_completed_date|query|string(date-time)|false|none|
-|from_expect_import_date|query|string(date-time)|false|none|
-|to_expect_import_date|query|string(date-time)|false|none|
-|expect_store|query|string|false|none|
-|status|query|string|false|none|
-|financial_status|query|string|false|none|
-|receive_status|query|string|false|none|
-|merchandiser|query|string|false|none|
-|qc|query|string|false|none|
-|cost_included|query|boolean|false|none|
-|tax_included|query|boolean|false|none|
-|is_have_returned|query|boolean|false|none|
-|note|query|string|false|none|
-|supplier_note|query|string|false|none|
-|tags|query|string|false|none|
-|reference|query|string|false|none|
-|ids|query|string|false|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="search-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPageableDtoSimplePurchaseOrderDto](#schemaresultpageabledtosimplepurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## create
-
-<a id="opIdcreate"></a>
-
-> Code samples
-
-`POST /purchase-orders`
-
-> Body parameter
-
-```json
-{
-  "created_by": "string",
-  "created_name": "string",
-  "updated_by": "string",
-  "updated_name": "string",
-  "request_id": "string",
-  "operator_kc_id": "string",
-  "id": 0,
-  "code": "string",
-  "company_id": 0,
-  "merchandiser_code": "string",
-  "merchandiser": "string",
-  "designer_code": "string",
-  "designer": "string",
-  "qc_code": "string",
-  "qc": "string",
-  "reference": "string",
-  "type": "string",
-  "supplier_id": 0,
-  "supplier_code": "string",
-  "supplier": "string",
-  "phone": "string",
-  "supplier_note": "string",
-  "billing_address": {
-    "created_by": "string",
-    "created_name": "string",
-    "updated_by": "string",
-    "updated_name": "string",
-    "request_id": "string",
-    "operator_kc_id": "string",
-    "id": 0,
-    "name": "string",
-    "email": "string",
-    "phone": "string",
-    "tax_code": "string",
-    "country_id": 0,
-    "country": "string",
-    "city_id": 0,
-    "city": "string",
-    "district_id": 0,
-    "district": "string",
-    "ward_id": 0,
-    "ward": "string",
-    "zip_code": "string",
-    "full_address": "string",
-    "bank_number": "string",
-    "bank_name": "string",
-    "beneficiary": "string",
-    "position": "string"
-  },
-  "supplier_address": {
-    "created_by": "string",
-    "created_name": "string",
-    "updated_by": "string",
-    "updated_name": "string",
-    "request_id": "string",
-    "operator_kc_id": "string",
-    "id": 0,
-    "name": "string",
-    "email": "string",
-    "phone": "string",
-    "tax_code": "string",
-    "country_id": 0,
-    "country": "string",
-    "city_id": 0,
-    "city": "string",
-    "district_id": 0,
-    "district": "string",
-    "ward_id": 0,
-    "ward": "string",
-    "zip_code": "string",
-    "full_address": "string",
-    "bank_number": "string",
-    "bank_name": "string",
-    "beneficiary": "string",
-    "position": "string"
-  },
-  "line_items": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "code": "string",
-      "sku": "string",
-      "variant_id": 0,
-      "barcode": "string",
-      "product_id": 0,
-      "product": "string",
-      "variant": "string",
-      "retail_price": 0,
-      "product_type": "string",
-      "quantity": 0,
-      "receipt_quantity": 0,
-      "planned_quantity": 0,
-      "price": 0,
-      "amount": 0,
-      "note": "string",
-      "type": "string",
-      "variant_image": "string",
-      "unit": "string",
-      "tax": 0,
-      "tax_rate": 0,
-      "line_amount_after_line_discount": 0,
-      "discount_rate": 0,
-      "discount_value": 0,
-      "discount_amount": 0,
-      "position": 0,
-      "purchase_order_id": 0
-    }
-  ],
-  "expect_import_date": "2019-08-24T14:15:22Z",
-  "expect_store_id": 0,
-  "expect_store": "string",
-  "payment_condition_id": 0,
-  "payment_condition_name": "string",
-  "payment_note": "string",
-  "note": "string",
-  "tags": "string",
-  "policy_price_code": "string",
-  "tax_included": true,
-  "payments": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "amount": 0,
-      "reference": "string",
-      "payment_method_code": "string",
-      "status": "string",
-      "status_name": "string",
-      "transaction_date": "2019-08-24T14:15:22Z",
-      "is_refund": true,
-      "purchase_order_id": 0,
-      "note": "string"
-    }
-  ],
-  "procurements": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "code": "string",
-      "reference": "string",
-      "store_id": 0,
-      "store": "string",
-      "expect_receipt_date": "2019-08-24T14:15:22Z",
-      "note": "string",
-      "status": "string",
-      "status_name": "string",
-      "activated_date": "2019-08-24T14:15:22Z",
-      "activated_by": "string",
-      "stock_in_date": "2019-08-24T14:15:22Z",
-      "stock_in_by": "string",
-      "procurement_items": [
-        {
-          "created_by": "string",
-          "created_name": "string",
-          "updated_by": "string",
-          "updated_name": "string",
-          "request_id": "string",
-          "operator_kc_id": "string",
-          "id": 0,
-          "line_item_id": 0,
-          "sku": "string",
-          "barcode": "string",
-          "variant": "string",
-          "variant_image": "string",
-          "variant_id": 0,
-          "retail_price": 0,
-          "ordered_quantity": 0,
-          "accepted_quantity": 0,
-          "planned_quantity": 0,
-          "quantity": 0,
-          "real_quantity": 0,
-          "note": "string",
-          "procurement_id": 0
-        }
-      ],
-      "refer_ids": [
-        0
-      ]
-    }
-  ],
-  "payment_discount_rate": 0,
-  "payment_discount_value": 0,
-  "payment_discount_amount": 0,
-  "trade_discount_rate": 0,
-  "trade_discount_value": 0,
-  "trade_discount_amount": 0,
-  "cost_lines": [
-    {
-      "created_by": "string",
-      "created_name": "string",
-      "updated_by": "string",
-      "updated_name": "string",
-      "request_id": "string",
-      "operator_kc_id": "string",
-      "id": 0,
-      "title": "string",
-      "amount": 0
-    }
-  ],
-  "untaxed_amount": 0,
-  "tax": 0,
-  "total": 0,
-  "total_paid": 0,
-  "total_refunds": 0,
-  "receipt_quantity": 0,
-  "planned_quantity": 0,
-  "status": "string",
-  "financial_status": "string",
-  "receive_status": "string",
-  "cancel_reason": "string",
-  "is_grid_mode": true,
-  "is_grid_mode_supplement": true
-}
-```
-
-<h3 id="create-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|x-user-name|header|string|false|none|
-|x-user-code|header|string|false|none|
-|body|body|[CreatePurchaseOrderRequest](#schemacreatepurchaseorderrequest)|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="create-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultPurchaseOrderDto](#schemaresultpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## delete
-
-<a id="opIddelete"></a>
-
-> Code samples
-
-`DELETE /purchase-orders`
-
-<h3 id="delete-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|x-user-name|header|string|false|none|
-|x-user-code|header|string|false|none|
-|ids|query|array[integer]|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="delete-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultString](#schemaresultstring)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## updateVariantPurchaseOrderLines
-
-<a id="opIdupdateVariantPurchaseOrderLines"></a>
-
-> Code samples
-
-`POST /purchase-orders/migration-variant-po-lines`
-
-> Example responses
-
-> 200 Response
-
-<h3 id="updatevariantpurchaseorderlines-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultString](#schemaresultstring)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## migrateUpdateStatusProcurementForCutOff
-
-<a id="opIdmigrateUpdateStatusProcurementForCutOff"></a>
-
-> Code samples
-
-`POST /purchase-orders/migration-status-procurement-cutoff`
-
-> Body parameter
-
-```json
-{
-  "file_upload": "string"
-}
-```
-
-<h3 id="migrateupdatestatusprocurementforcutoff-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» file_upload|body|string(binary)|false|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="migrateupdatestatusprocurementforcutoff-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListString](#schemaresultliststring)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## migrateDataPoFromNhanh
-
-<a id="opIdmigrateDataPoFromNhanh"></a>
-
-> Code samples
-
-`POST /purchase-orders/migration-po`
-
-> Body parameter
-
-```json
-{
-  "file_upload": "string"
-}
-```
-
-<h3 id="migratedatapofromnhanh-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|object|true|none|
-|» file_upload|body|string(binary)|false|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="migratedatapofromnhanh-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListString](#schemaresultliststring)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## printProcurement
-
-<a id="opIdprintProcurement"></a>
-
-> Code samples
-
-`GET /purchase-orders/print-procurement`
-
-<h3 id="printprocurement-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|query|integer(int64)|true|none|
-|poId|query|integer(int64)|true|none|
-|storeId|query|integer(int64)|false|none|
-|print_type|query|string|false|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="printprocurement-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ProcurementPrintForm](#schemaprocurementprintform)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## printFrom
-
-<a id="opIdprintFrom"></a>
-
-> Code samples
-
-`GET /purchase-orders/print-forms`
-
-<h3 id="printfrom-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|ids|query|array[integer]|true|none|
-|storeId|query|integer(int64)|false|none|
-|print_type|query|string|false|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="printfrom-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
-
-<h3 id="printfrom-responseschema">Response Schema</h3>
-
-Status Code **200**
-
-|Name|Type|Required|Restrictions|Description|
-|---|---|---|---|---|
-|*anonymous*|[[PurchaseOrderPrintForm](#schemapurchaseorderprintform)]|false|none|none|
-|» purchaseOrderId|integer(int64)|false|none|none|
-|» htmlContent|string|false|none|none|
-|» size|string|false|none|none|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## getPurchaseOrder_1
-
-<a id="opIdgetPurchaseOrder_1"></a>
-
-> Code samples
-
-`GET /purchase-orders/list`
-
-<h3 id="getpurchaseorder_1-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|ids|query|array[integer]|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="getpurchaseorder_1-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListPurchaseOrderDto](#schemaresultlistpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## findAllPoBySupplierIdToCreateProcurementManual
-
-<a id="opIdfindAllPoBySupplierIdToCreateProcurementManual"></a>
-
-> Code samples
-
-`GET /purchase-orders/list-by-supplier/{id}`
-
-<h3 id="findallpobysupplieridtocreateprocurementmanual-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|id|path|integer(int64)|true|none|
-|condition|query|string|false|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="findallpobysupplieridtocreateprocurementmanual-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListPurchaseOrderDto](#schemaresultlistpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## findPurchaseOrderAlmostRight
-
-<a id="opIdfindPurchaseOrderAlmostRight"></a>
-
-> Code samples
-
-`GET /purchase-orders/almost-right`
-
-<h3 id="findpurchaseorderalmostright-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|sku|query|string|true|none|
-|supplier_id|query|integer(int64)|true|none|
-
-> Example responses
-
-> 200 Response
-
-<h3 id="findpurchaseorderalmostright-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[ResultListPurchaseOrderDto](#schemaresultlistpurchaseorderdto)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
 
 <h1 id="openapi-definition-payment-condition-controller">payment-condition-controller</h1>
 
